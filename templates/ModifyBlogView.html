@@ -1,0 +1,29 @@
+{!layout LayoutView!}{!layout_field Content!}
+{@
+	Entry as BlogEntryData;
+@}
+<div class="entry">
+{!if Entry==null!}	
+<form method="post" action="/new">
+{!else!}
+<form method="post" action="{=BlogHandler.GetUrl(Entry,"edit")=}">
+{!endif!}
+
+{#		
+if(Entry==null){		
+	Entry=new BlogEntryData();
+}
+#}		
+Title: <input type="text" name="Title" value="{=Entry.Title=}" /> <br />
+Text: <textarea rows="10" cols="80" name="Text">{=Entry.Text=}</textarea><br />
+Publish To Index?: <input type="checkbox" name="Publish" checked="{=Entry.Publish ? "yes" : "no" =}" value="true" /><br />
+Tags: 
+{!if Entry.Tags!=null!}
+	<input type="text" name="Tags" value="{!foreach tag in Entry.Tags!}{=tag=} {!endforeach!}" />
+{!else!}
+	<input type="text" name="Tags" value="" />
+{!endif!}
+<br />
+<input type="submit" value="Submit" />
+</form>
+</div>

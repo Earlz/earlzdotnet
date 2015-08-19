@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+{@
+	Title as string;
+	Content as IBarelyView;
+	Active as string;
+@}
+<html>
+	<head>
+		<title>{=HttpUtility.HtmlEncode(Title)=}</title>
+		<link rel="stylesheet" type="text/css" media="all" href="/static/style.css" />
+		
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js">
+		</script>
+	</head>
+	<body>
+	<div class="wrapper">
+		<div class="header">
+			<div id="name">
+				<div id="logo">
+					<a href="/">Earlz.net</a>
+				</div>
+				<div id="tagline">
+				<a href="/tags/programming">Programming!</a>
+				<a href="/tags/electronics">Electronics!</a>
+				<a href="/tags/hacking">Hacking!</a>
+				<a href="/tags/random">Oh My!</a>
+				</div>
+			</div>
+			<div id="nav">
+				<a href="/">Home</a>
+				<a href="/aboutme">About Me</a>
+				<a href="/projects">Projects</a>
+				<a href="/tags">Tags</a>
+			</div>
+		</div>
+		<div class="content">
+			<div id="mycontent">
+				{=Content=}
+			</div>
+		</div>
+		<div id="copyright">
+        	site design &copy; 2012-2013 Jordan Earls; 
+    		user contributions(comments) and blog entries licensed under <a href="http://creativecommons.org/licenses/by-sa/2.5/">cc-wiki</a> with attribution required
+    	</div>
+	</div>
+
+<!--Twitter API -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>	
+
+<!--- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41190820-1', 'earlz.net');
+  ga('send', 'pageview');
+
+</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+{!layout LayoutView!}{!layout_field Content!}
+{@
+	Entries as List<BlogEntryData>;
+	Page as int;
+	Tag as string;
+	PageMax as int;
+	ShowPaging as bool;
+@}
+{!foreach entry in Entries!}
+		{?BlogEntryView Entry=entry,Layout=null,Summary=true,ShowComments=false?}
+{!endforeach!}
+{#
+	if(Tag==null){
+		Tag="/blog";
+	}else{
+		Tag="/tags/"+Tag;
+	}
+#}
+	
+{!if ShowPaging!}	
+<div class="page_nav">
+
+{!if Page>1!}
+<div class="newer">
+<a href="{=Tag=}/{=Page-1=}">Newer</a>
+</div>
+{!endif!}
+
+{!if Page<PageMax!}
+<div class="older">
+<a href="{=Tag=}/{=Page+1=}">Older</a>
+</div>
+{!endif!}
+
+</div>
+{!endif!}

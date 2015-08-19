@@ -1,0 +1,13 @@
+{!layout LayoutView!}{!layout_field Content!}
+{@
+	Tags as List<string>;
+@}
+<div class="entry">
+	<h2>Tag List</h2>
+	<div>
+	<p>Definitely not the best formatting, but it works for now.</p>
+	</div>
+	{!foreach tag in Tags!}
+		<p style="margin-top: 1px; margin-bottom: 1px"><a href="/tags/{=tag=}/1">{=tag=}</a></p>
+	{!endforeach!}
+</div>
